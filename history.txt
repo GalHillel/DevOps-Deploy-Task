@@ -1,0 +1,96 @@
+ 1980  cd projects/
+ 1981  git clone git@github.com:GalHillel/DevOps-Deploy-Task.git
+ 1982  cd DevOps-Deploy-Task/
+ 1983  mkdir scripts nginx site
+ 1984  cd site/
+ 1985  touch index.html health.html
+ 1986  cd ..
+ 1987  cd nginx/
+ 1988  touch site.conf site-ssl.conf
+ 1989  cd ..
+ 1990  cd scripts/
+ 1991  touch deploy.sh backup.sh health_check.sh ssl_selfsign.sh
+ 1992  ls
+ 1993  cd ..
+ 1994  touch .gitignore
+ 1995  ls
+ 1996  cd scripts/
+ 1997  touch roll-back.sh
+ 1998  cd ..
+ 1999  ls
+ 2000  ls -la
+ 2001  sudo useradd webdeploy
+ 2002  cut -d: -f1 /etc/passwd
+ 2003  sudo passwd webdeploy 
+ 2004  su - webdeploy 
+ 2005  mkdir /var/www/devops-site
+ 2006  mkdir -p /var/www/devops-site/
+ 2007  sudo mkdir -p /var/www/devops-site/
+ 2008  sudo chown -R webdeploy:webdeploy /var/www/devops-site
+ 2009  sudo chmod -R 755 /var/www
+ 2010  sudo systemctl status nginx
+ 2011  code .
+ 2012  code
+ 2013  sudo ln -s $(pwd)/nginx/site.conf /etc/nginx/sites-enabled/devops-site.conf
+ 2014  sudo rm /etc/nginx/sites-enabled/default
+ 2015  sudo nginx -t
+ 2016  sudo systemctl reload nginx
+ 2017  curl http://localhost
+ 2018  curl -I http://localhost/~webdeploy
+ 2019  curl -I http://localhost/webdeploy
+ 2020  sudo rm /etc/nginx/sites-enabled/default
+ 2021  curl http://localhost
+ 2022  sudo rm /etc/nginx/sites-enabled/default
+ 2023  cd /etc/nginx
+ 2024  code.
+ 2025  code .
+ 2026  ls
+ 2027  vim nginx.conf 
+ 2028  cd conf.d/
+ 2029  ls
+ 2030  ls -ls
+ 2031  ls -la
+ 2032  cd ..
+ 2033  ls
+ 2034  cd ..
+ 2035  cd -
+ 2036  cd
+ 2037  clear
+ 2038  ls -ld /var/www/devops-site
+ 2039  cd projects/DevOps-Deploy-Task/
+ 2040  tree
+ 2041  sudo rm /etc/nginx/sites-enabled/default
+ 2042  chmod +x scripts/ssl_selfsign.sh
+ 2043  chmod +x scripts/deploy.sh
+ 2044  chmod +x scripts/health_check.sh
+ 2045  ./scripts/health_check.sh && echo OK
+ 2046  ./scripts/ssl_selfsign.sh
+ 2047  ls /etc/nginx/ssl
+ 2048  sudo cp nginx/site.conf /etc/nginx/sites-available/devops-site
+ 2049  sudo cp nginx/site-ssl.conf /etc/nginx/sites-available/devops-site-ssl
+ 2050  sudo ln -s /etc/nginx/sites-available/devops-site /etc/nginx/sites-enabled/
+ 2051  sudo ln -s /etc/nginx/sites-available/devops-site-ssl /etc/nginx/sites-enabled/
+ 2052  sudo nginx -t
+ 2053  sudo systemctl reload nginx
+ 2054  ./scripts/deploy.sh
+ 2055  ./scripts/health_check.sh
+ 2056  echo $?
+ 2057  ./scripts/health_check.sh
+ 2058  echo $?
+ 2059  ./scripts/backup.sh
+ 2060  sudo ./scripts/backup.sh
+ 2061  ./scripts/rollback.sh
+ 2062  sudo rm /etc/nginx/sites-enabled/default
+ 2063  systemctl status apache2
+ 2064  sudo systemctl stop apache2
+ 2065  sudo systemctl disable apache2
+ 2066  sudo systemctl status apache2
+ 2067  sudo systemctl status nginx
+ 2068  sudo systemctl start nginx
+ 2069  sudo ss -tulpn | grep :80
+ 2070  sudo nginx -t
+ 2071  sudo systemctl reload nginx
+ 2072  ls -l /var/www/devops-site
+ 2073  ./scripts/deploy.sh
+ 2074  ls -l /var/www/devops-site
+ 2075  history > history.txt
