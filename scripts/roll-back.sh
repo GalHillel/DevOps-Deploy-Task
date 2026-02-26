@@ -17,4 +17,4 @@ echo "Rolling back to: $LAST_BACKUP"
 rm -rf "${DEST:?}"/*
 tar xzf "$LAST_BACKUP" -C "$DEST"
 
-echo "Rollback completed. (NGINX reload may be required manually if permissions fail)"
+echo "Rollback completed"
